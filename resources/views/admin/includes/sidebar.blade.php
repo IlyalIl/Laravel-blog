@@ -1,7 +1,7 @@
 <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
-        <a href="./index.html" class="brand-link">
+        <a href="{{ asset('admin') }}" class="brand-link">
             <!--begin::Brand Text-->
             <span class="brand-text fw-light">Blog Admin Panel</span>
             <!--end::Brand Text-->
@@ -15,6 +15,12 @@
                 <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon bi bi-list"></i>
                     <p>Категории</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                    <i class="nav-icon bi bi-tags"></i>
+                    <p>Тэги</p>
                 </a>
             </li>
         </ul>

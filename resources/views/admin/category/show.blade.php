@@ -9,7 +9,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mb-0">{{ $category->title }}</h1>
+                        <h1 class="mb-0">Категория: {{ $category->title }}</h1>
                         <a href="{{ route('admin.category.edit', $category->id) }}" class="text-success">
                             <i class="bi bi-pencil-square"></i>
                         </a>
