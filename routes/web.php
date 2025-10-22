@@ -23,6 +23,13 @@ use App\Http\Controllers\Admin\Post\ShowController as PostShowController;
 use App\Http\Controllers\Admin\Post\EditController as PostEditController;
 use App\Http\Controllers\Admin\Post\UpdateController as PostUpdateController;
 use App\Http\Controllers\Admin\Post\DeleteController as PostDeleteController;
+use App\Http\Controllers\Admin\User\IndexController as UserIndexController;
+use App\Http\Controllers\Admin\User\CreateController as UserCreateController;
+use App\Http\Controllers\Admin\User\StoreController as UserStoreController;
+use App\Http\Controllers\Admin\User\ShowController as UserShowController;
+use App\Http\Controllers\Admin\User\EditController as UserEditController;
+use App\Http\Controllers\Admin\User\UpdateController as UserUpdateController;
+use App\Http\Controllers\Admin\User\DeleteController as UserDeleteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +43,10 @@ Route::get('/', IndexController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+
     Route::get('/', AdminIndexController::class);
 
     Route::prefix('categories')->group(function () {
@@ -68,4 +78,15 @@ Route::prefix('admin')->group(function () {
         Route::patch('/{post}', PostUpdateController::class)->name('admin.post.update');
         Route::delete('/{post}', PostDeleteController::class)->name('admin.post.delete');
     });
+
+    Route::prefix('users')->group(function () {
+        Route::get('/', UserIndexController::class)->name('admin.user.index');
+        Route::get('/create', UserCreateController::class)->name('admin.user.create');
+        Route::post('/', UserStoreController::class)->name('admin.user.store');
+        Route::get('/{user}', UserShowController::class)->name('admin.user.show');
+        Route::get('/{user}/edit', UserEditController::class)->name('admin.user.edit');
+        Route::patch('/{user}', UserUpdateController::class)->name('admin.user.update');
+        Route::delete('/{user}', UserDeleteController::class)->name('admin.user.delete');
+    });
 });
+

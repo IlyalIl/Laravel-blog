@@ -28,11 +28,13 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('admin.post.store') }}" method="POST" class="w-25" enctype="multipart/form-data">
+                        <form action="{{ route('admin.post.store') }}" method="POST" class="w-25"
+                              enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control mb-2" name="title" id="title" placeholder="Название поста"
-                                value="{{ old('title') }}" autocomplete="off">
+                                <input type="text" class="form-control mb-2" name="title" id="title"
+                                       placeholder="Название поста"
+                                       value="{{ old('title') }}" autocomplete="off">
                             </div>
                             <div class="form-group mb-3" style="width: 600px;">
                                 <div id="editor" style="height: 150px"></div>
@@ -57,6 +59,8 @@
                                         <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
                                 <h6>Тэги</h6>
                                 <select id="tags" name="tag_ids[]" multiple>
                                     @foreach($tags as $tag)
