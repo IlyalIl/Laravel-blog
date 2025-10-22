@@ -16,6 +16,13 @@ use App\Http\Controllers\Admin\Tag\ShowController as TagShowController;
 use App\Http\Controllers\Admin\Tag\EditController as TagEditController;
 use App\Http\Controllers\Admin\Tag\UpdateController as TagUpdateController;
 use App\Http\Controllers\Admin\Tag\DeleteController as TagDeleteController;
+use App\Http\Controllers\Admin\Post\IndexController as PostIndexController;
+use App\Http\Controllers\Admin\Post\CreateController as PostCreateController;
+use App\Http\Controllers\Admin\Post\StoreController as PostStoreController;
+use App\Http\Controllers\Admin\Post\ShowController as PostShowController;
+use App\Http\Controllers\Admin\Post\EditController as PostEditController;
+use App\Http\Controllers\Admin\Post\UpdateController as PostUpdateController;
+use App\Http\Controllers\Admin\Post\DeleteController as PostDeleteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +39,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('admin')->group(function () {
     Route::get('/', AdminIndexController::class);
 
-    Route::prefix('category')->group(function () {
+    Route::prefix('categories')->group(function () {
         Route::get('/', CategoryIndexController::class)->name('admin.category.index');
         Route::get('/create', CategoryCreateController::class)->name('admin.category.create');
         Route::post('/', CategoryStoreController::class)->name('admin.category.store');
@@ -50,5 +57,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/{tag}/edit', TagEditController::class)->name('admin.tag.edit');
         Route::patch('/{tag}', TagUpdateController::class)->name('admin.tag.update');
         Route::delete('/{tag}', TagDeleteController::class)->name('admin.tag.delete');
+    });
+
+    Route::prefix('posts')->group(function () {
+        Route::get('/', PostIndexController::class)->name('admin.post.index');
+        Route::get('/create', PostCreateController::class)->name('admin.post.create');
+        Route::post('/', PostStoreController::class)->name('admin.post.store');
+        Route::get('/{post}', PostShowController::class)->name('admin.post.show');
+        Route::get('/{post}/edit', PostEditController::class)->name('admin.post.edit');
+        Route::patch('/{post}', PostUpdateController::class)->name('admin.post.update');
+        Route::delete('/{post}', PostDeleteController::class)->name('admin.post.delete');
     });
 });

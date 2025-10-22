@@ -10,7 +10,7 @@
         "@popperjs/core": "^2.11.6",
         "@tailwindcss/vite": "^4.0.0",
         "axios": "^1.11.0",
-        "bootstrap": "^5.2.3",
+        "bootstrap": "^5.3.8",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
         "sass": "^1.56.1",
@@ -19,6 +19,9 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "bootstrap": "^5.3.8"
+        "jquerry": "^0.0.1-security",
+        "popper.js": "^1.16.1",
+        "quill": "^2.0.3",
+        "tom-select": "^2.4.3"
     }
 }

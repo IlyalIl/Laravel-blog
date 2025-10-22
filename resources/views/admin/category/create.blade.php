@@ -31,7 +31,7 @@
                         <form action="{{ route('admin.category.store') }}" method="POST" class="w-25">
                             @csrf
                             <div class="mb-3">
-                                <input type="text" class="form-control mb-2" name="title" id="title" placeholder="Название категории">
+                                <input type="text" class="form-control mb-2" name="title" id="title" placeholder="Название категории" autocomplete="off">
                                 @error('title')
                                     <div class="text-danger">Это поле обязятально для заполнения</div>
                                 @enderror

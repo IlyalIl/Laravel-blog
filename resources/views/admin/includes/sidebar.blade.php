@@ -12,6 +12,12 @@
     <div class="sidebar-wrapper">
         <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="navigation" aria-label="Main navigation" data-accordion="false" id="navigation">
             <li class="nav-item">
+                <a href="{{ route('admin.post.index') }}" class="nav-link">
+                    <i class="nav-icon bi bi-file-text-fill"></i>
+                    <p>Посты</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon bi bi-list"></i>
                     <p>Категории</p>
