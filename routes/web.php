@@ -37,14 +37,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', IndexController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')
-    ->middleware(['auth', 'admin'])
+    ->middleware(['auth', 'admin', 'verified'])
     ->group(function () {
 
     Route::get('/', AdminIndexController::class);
@@ -89,4 +89,5 @@ Route::prefix('admin')
         Route::delete('/{user}', UserDeleteController::class)->name('admin.user.delete');
     });
 });
+
 

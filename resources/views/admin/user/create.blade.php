@@ -42,12 +42,6 @@
                                 <div class="text-danger">Это поле обязятально для заполнения</div>
                                 @enderror
                             </div>
-                            <div class="form-group mb-3">
-                                <input type="text" class="form-control mb-2" name="password" id="password" placeholder="Password" autocomplete="off">
-                                @error('password')
-                                <div class="text-danger">Это поле обязятально для заполнения</div>
-                                @enderror
-                            </div>
                             <div class="form-group">
                                 <h6>Выберите роль</h6>
                                 <select name="role" class="form-select mb-3" aria-label="Default select example">

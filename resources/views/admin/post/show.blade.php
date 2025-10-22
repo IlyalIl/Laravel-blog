@@ -9,7 +9,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mb-0">Пост: {{ $post->title }}</h1>
+                        <h1 class="mb-0">Пост {{ $post->title }}</h1>
                         <a href="{{ route('admin.post.edit', $post->id) }}" class="text-success">
                             <i class="bi bi-pencil-square"></i>
                         </a>

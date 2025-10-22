@@ -9,7 +9,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mb-0">Тэг: {{ $tag->title }}</h1>
+                        <h1 class="mb-0">Тэг {{ $tag->title }}</h1>
                         <a href="{{ route('admin.tag.edit', $tag->id) }}" class="text-success">
                             <i class="bi bi-pencil-square"></i>
                         </a>
