@@ -19,3 +19,23 @@
 - **База данных:** MySQL
 - **Почта:** Mailtrap
 - **Контроль версий:** Git, GitHub
+
+## ⚙️ Быстрый старт
+1. Клонируем репозиторий:
+   git clone https://github.com/USERNAME/laravel-blog.git
+   cd laravel-blog
+
+2. Устанавливаем зависимости:
+    composer install
+    npm install && npm run dev
+
+3. Копируем .env и генерируем ключ:
+    cp .env.example .env
+    php artisan key:generate
+
+4. Настраиваем базу данных в .env и выполняем миграции:
+    php artisan migrate
+
+5. Запускаем локальный сервер:
+    php artisan serve
+    Перейти: http://127.0.0.1:8000
