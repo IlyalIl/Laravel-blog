@@ -8,11 +8,11 @@
             <div class="container-fluid">
                 <!--begin::Row-->
                 <div class="row">
-                    <div class="col-sm-6"><h3 class="mb-0">Тэги</h3></div>
+                    <div class="col-sm-6"><h3 class="mb-0">Теги</h3></div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Теги</li>
                         </ol>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 100px" scope="col">ID</th>
-                                        <th scope="col">Тэги</th>
+                                        <th scope="col">Теги</th>
                                         <th scope="col" colspan="3" class="text-center">Действия</th>
                                     </tr>
                                     </thead>

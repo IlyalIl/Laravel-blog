@@ -9,7 +9,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mb-0">Тэг {{ $tag->title }}</h1>
+                        <h1 class="mb-0">{{ $tag->title }}</h1>
                         <a href="{{ route('admin.tag.edit', $tag->id) }}" class="text-success">
                             <i class="bi bi-pencil-square"></i>
                         </a>
@@ -23,8 +23,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.tag.index') }}">Теги</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $tag->title }}</li>
                         </ol>
                     </div>
                 </div>

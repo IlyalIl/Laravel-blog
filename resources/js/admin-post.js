@@ -17,13 +17,17 @@ export default function initPostForm() {
     });
 
     const hiddenInput = document.querySelector('input[name="content"]');
-    if (hiddenInput && hiddenInput.value) quill.root.innerHTML = hiddenInput.value;
+    if (hiddenInput && hiddenInput.value) {
+        quill.root.innerHTML = hiddenInput.value;
+    }
 
-    const form = document.querySelector('form');
+    const form = document.getElementById('post-form');
     form?.addEventListener('submit', (e) => {
+        hiddenInput.value = quill.root.innerHTML;
+        console.log('content:', hiddenInput.value);
+
         let hasError = false;
 
-        // Проверка title
         const titleInput = document.querySelector('input[name="title"]');
         let titleError = document.querySelector('#title-error');
         if (titleInput && titleInput.value.trim() === '') {
@@ -40,7 +44,7 @@ export default function initPostForm() {
             titleError?.remove();
         }
 
-        const text = quill.getText().trim();
+        const text = quill.getText().trim().replace(/\n/g, '');
         let contentError = document.querySelector('#editor-error');
         if (!text) {
             e.preventDefault();
@@ -56,8 +60,9 @@ export default function initPostForm() {
             contentError?.remove();
         }
 
-        if (!hasError && hiddenInput) {
-            hiddenInput.value = quill.root.innerHTML;
+        if (hasError) {
+            e.preventDefault();
+            return;
         }
     });
 }

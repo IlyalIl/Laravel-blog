@@ -9,7 +9,7 @@
                 <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="mb-0">Категория: {{ $category->title }}</h1>
+                        <h1 class="mb-0">{{ $category->title }}</h1>
                         <a href="{{ route('admin.category.edit', $category->id) }}" class="text-success">
                             <i class="bi bi-pencil-square"></i>
                         </a>
@@ -23,8 +23,9 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Категории</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ $category->title  }}</li>
                         </ol>
                     </div>
                 </div>
