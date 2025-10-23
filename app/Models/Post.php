@@ -10,10 +10,20 @@ class Post extends Model
     use SoftDeletes;
 
     protected $table = 'posts';
-    protected $guarded = false;
+    protected $guarded = [];
 
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function likedUser()
+    {
+        return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
     }
 }
