@@ -47,6 +47,9 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/', IndexController::class)->name('main.index');
+Route::prefix('posts')->group(function () {
+    Route::get('/', [PostIndexController::class, 'index'])->name('post.index');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
